@@ -3,12 +3,12 @@ import { buildSystemPrompt, parseAIResponse } from "../../../lib/pm1-engine";
 export async function POST(req) {
   try {
     const { messages, profile } = await req.json();
-console.log("KEY EXISTS:", !!process.env.CLAVE_API_ANTROPICA);
+console.log("KEY EXISTS:", !!process.env.ANTHROPIC_API_KEY);
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.CLAVE_API_ANTROPICA,
+        "x-api-key": process.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
