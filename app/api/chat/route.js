@@ -5,11 +5,10 @@ export async function POST(req) {
     const { messages, profile } = await req.json();
 console.log("KEY EXISTS:", !!process.env.CLAVE_API_ANTROPICA);
     const response = await fetch("https://api.anthropic.com/v1/messages", {
-      console.log("STATUS:", response.status);
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.CLAVE_API_ANTRÒPICA,
+        "x-api-key": process.env.CLAVE_API_ANTROPICA,
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
@@ -22,6 +21,7 @@ console.log("KEY EXISTS:", !!process.env.CLAVE_API_ANTROPICA);
         })),
       }),
     });
+     console.log("STATUS:", response.status);
 
     const data = await response.json();
 
