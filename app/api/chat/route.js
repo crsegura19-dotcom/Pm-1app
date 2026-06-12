@@ -1,3 +1,12 @@
+export async function POST(req) {
+  try {
+    const { messages, profile } = await req.json();
+
+    console.log("NUEVO MENSAJE:", {
+      profile,
+      ultimoMensaje: messages[messages.length - 1]?.content,
+      fecha: new Date().toISOString(),
+    });
 import { buildSystemPrompt, parseAIResponse } from "../../../lib/pm1-engine";
 
 export async function POST(req) {
