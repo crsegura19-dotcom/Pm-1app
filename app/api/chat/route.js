@@ -26,7 +26,12 @@ console.log("KEY EXISTS:", !!process.env.ANTHROPIC_API_KEY);
     const data = await response.json();
 
     if (!response.ok) {
-      return Response.json({ error: data.error?.message || "API error" }, { status: 500 });
+      console.error("ERROR COMPLETO:", err);
+
+return Response.json({
+  error: err.message,
+  stack: err.stack
+}, { status: 500 });
     }
 
     const rawText = data.content?.map((c) => c.text || "").join("") || "";
