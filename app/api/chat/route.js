@@ -24,6 +24,7 @@ console.log("KEY EXISTS:", !!process.env.ANTHROPIC_API_KEY);
      console.log("STATUS:", response.status);
 
     const data = await response.json();
+    console.log("ANTHROPIC RESPONSE:", JSON.stringify(data));
 
     if (!response.ok) {
       console.error("ERROR COMPLETO:", err);
