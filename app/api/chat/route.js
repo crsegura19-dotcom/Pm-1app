@@ -12,7 +12,7 @@ console.log("KEY EXISTS:", !!process.env.ANTHROPIC_API_KEY);
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-0",
+        model: "claude-3-haiku-20240307",
         max_tokens: 1000,
         system: buildSystemPrompt(profile),
         messages: messages.map((m) => ({
