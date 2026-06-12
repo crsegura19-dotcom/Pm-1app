@@ -3,6 +3,7 @@ import { buildSystemPrompt, parseAIResponse } from "../../../lib/pm1-engine";
 export async function POST(req) {
   try {
     const { messages, profile } = await req.json();
+    console.log("API KEY:", process.env.ANTHROPIC_API_KEY?.substring(0,15));
 console.log("KEY EXISTS:", !!process.env.ANTHROPIC_API_KEY);
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
